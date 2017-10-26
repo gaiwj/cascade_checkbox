@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            height: 400px;
+            width: 600px;
+            margin: 60px auto;
+        }
+        #box ul {
+            float: left;
+            width: 24%;
+            height: 100%;
+            border: 1px solid #999;
+        }
+        ul li{
+            list-style: none;
+        }
+    </style>
+    <script src="./jquery-2.2.4.js"></script>
+</head>
+<body>
+    <div id="box">
+        <ul id="u1"></ul>
+        <ul id="u2"></ul>
+        <ul id="u3"></ul>
+        <ul id="u4"></ul>
+    </div>
+    <button id="btn">确定</button>
+    <script>
+        const items = [
+                { value: 'item0', label: 'item0' },
+                { value: 'item1', label: 'item1' },
+                { value: 'item2', label: 'item2' },
+                { value: 'item3', label: 'item3' },
+                { value: 'item4', label: 'item4' },
+                { value: 'item5', label: 'item5' },
+                { value: 'item6', label: 'item6' },
+                { value: 'item7', label: 'item7' },
+                { value: 'item8', label: 'item8' },
+                { value: 'item9', label: 'item9' },
+                { value: 'item10', label: 'item10' },
+                { value: 'item11', label: 'item11' },
+                { value: 'item12', label: 'item12' },
+                { value: 'item13', label: 'item13' },
+                { value: 'item14', label: 'item14' },
+                { value: 'item15', label: 'item15' },
+                { value: 'item16', label: 'item16' },
+                { value: 'item17', label: 'item17' },
+                { value: 'item18', label: 'item18' },
+            ]
+
+        const igs = [
+                { value: 'ig0', label: 'ig0' },
+                { value: 'ig1', label: 'ig1' },
+                { value: 'ig2', label: 'ig2' },
+                { value: 'ig3', label: 'ig3' },
+                { value: 'ig4', label: 'ig4' },
+                { value: 'ig5', label: 'ig5' },
+                { value: 'ig6', label: 'ig6' },
+                { value: 'ig7', label: 'ig7' },
+                { value: 'ig8', label: 'ig8' },
+                { value: 'ig9', label: 'ig9' },
+                { value: 'ig10', label: 'ig10' },
+                { value: 'ig11', label: 'ig11' },
+                { value: 'ig12', label: 'ig12' },
+                { value: 'ig13', label: 'ig13' },
+                { value: 'ig14', label: 'ig14' },
+                { value: 'ig15', label: 'ig15' },
+                { value: 'ig16', label: 'ig16' },
+                { value: 'ig17', label: 'ig17' },
+                { value: 'ig18', label: 'ig18' },
+        ]
+
+        const forms = [
+                { value: 'form0', label: 'form0' },
+                { value: 'form1', label: 'form1' },
+                { value: 'form2', label: 'form2' },
+                { value: 'form3', label: 'form3' },
+                { value: 'form4', label: 'form4' },
+                { value: 'form5', label: 'form5' },
+                { value: 'form6', label: 'form6' },
+                { value: 'form7', label: 'form7' },
+                { value: 'form8', label: 'form8' },
+                { value: 'form9', label: 'form9' },
+                { value: 'form10', label: 'form10' },
+                { value: 'form11', label: 'form11' },
+                { value: 'form12', label: 'form12' },
+                { value: 'form13', label: 'form13' },
+                { value: 'form14', label: 'form14' },
+                { value: 'form15', label: 'form15' },
+                { value: 'form16', label: 'form16' },
+                { value: 'form17', label: 'form17' },
+                { value: 'form18', label: 'form18' },
+        ]
+
+        const subjectData = [
+            {
+                value: 'v1',
+                label: 'v1',
+                forms: [
+                {
+                    ...forms[0],
+                    igs: [
+                    {
+                        ...igs[0], items: [
+                        { ...items[0] },
+                        { ...items[1] },
+                        { ...items[2] },
+                        ]
+                    },
+                    {
+                        ...igs[1],
+                        items: [
+                        { ...items[3] },
+                        { ...items[4] },
+                        { ...items[5] },
+                        ]
+                    },
+                    {
+                        ...igs[2], items: [
+                        { ...items[6] },
+                        { ...items[7] },
+                        { ...items[8] },
+                        ]
+                    },
+                    ]
+                },
+                {
+                    ...forms[1],
+                    igs: [
+                    {
+                        ...igs[3], items: [
+                        { ...items[9] },
+                        { ...items[10] },
+                        { ...items[11] },
+                        ]
+                    },
+                    {
+                        ...igs[4], items: [
+                        { ...items[12] },
+                        { ...items[13] },
+                        { ...items[14] },
+                        ]
+                    },
+                    {
+                        ...igs[5], items: [
+                        { ...items[15] },
+                        { ...items[16] },
+                        { ...items[17] },
+                        ]
+                    },
+                    ]
+                },
+                {
+                    ...forms[2],
+                    igs: [
+                    {
+                        ...igs[6], items: [
+                        { ...items[18] },
+                        { ...items[0] },
+                        { ...items[1] },
+                        ]
+                    },
+                    {
+                        ...igs[7], items: [
+                        { ...items[2] },
+                        { ...items[3] },
+                        { ...items[4] },
+                        ]
+                    },
+                    {
+                        ...igs[8], items: [
+                        { ...items[5] },
+                        { ...items[6] },
+                        { ...items[7] },
+                        ]
+                    },
+                    ]
+                },
+                ]
+            }
+        ]
+
+        var u1 = $('#u1');
+        var u2 = $('#u2');
+        var u3 = $('#u3');
+        var u4 = $('#u4');
+
+        var list1 = [];
+        $('#box').on('change', function(ev){
+            var list1 = [];
+            var list2 = [];
+            var list3 = [];
+            var list4 = [];
+            if(ev.target.tagName === 'INPUT'){
+                var u1_list = u1.find("input[type=checkbox]:checked"); 
+                var u2_list = u2.find("input[type=checkbox]:checked");
+                var u3_list = u3.find("input[type=checkbox]:checked"); 
+                var u4_list = u4.find("input[type=checkbox]:checked");
+
+                u1_list = [].map.call(u1_list, function(val){
+                    return $(val).attr('label');
+                })
+                u2_list = [].map.call(u2_list, function(val){
+                    return $(val).attr('label');
+                })
+                u3_list = [].map.call(u3_list, function(val){
+                    return $(val).attr('label');
+                })
+                u4_list = [].map.call(u4_list, function(val){
+                    return $(val).attr('label');
+                })
+                
+                subjectData.forEach(function(v1){
+                    if(u1_list.indexOf(v1.label)!==-1){
+                        v1.checked = true;
+                    }else{
+                        v1.checked = false;
+                    }
+                    v1.forms.forEach(function(v2){
+                        if(u2_list.indexOf(v2.label)!==-1){
+                            v2.checked = true;
+                        }else{
+                            v2.checked = false;
+                        }
+                        v2.igs.forEach(function(v3){
+                            if(u3_list.indexOf(v3.label)!==-1){
+                                v3.checked = true;
+                            }else{
+                                v3.checked = false;
+                            }
+                            v3.items.forEach(function(v4){
+                                if(u4_list.indexOf(v4.label)!==-1){
+                                    v4.checked = true;
+                                }else{
+                                    v4.checked = false;
+                                }
+                            })
+                        })
+                    })
+                })
+
+                subjectData.forEach(function(v1){
+                    if(u1_list.indexOf(v1.label)!==-1){
+                        list2.push(...createList(v1.forms));
+                        v1.forms.forEach(function(v2){
+                            if(u2_list.indexOf(v2.label)!==-1){
+                                list3.push(...createList(v2.igs));
+                                v2.igs.forEach(function(v3){
+                                    if(u3_list.indexOf(v3.label)!==-1){
+                                        list4.push(...createList(v3.items));
+                                    }
+                                })
+                            }
+                        });
+                    }
+                })
+                
+                u2.html(noRepeat(list2).join(''));
+                u3.html(noRepeat(list3).join(''));
+                u4.html(noRepeat(list4).join(''));
+                // u2.html([...new Set(list2)].join(''));
+                // u3.html([...new Set(list3)].join(''));
+                // u4.html([...new Set(list4)].join(''));  
+            }
+        })
+
+        list1.push(...createList(subjectData))
+        u1.html(list1.join(''));
+        
+        function createList(data){
+            var tempList = [];
+            for(var v in data){
+                var displayName = data[v].label;
+                if(data[v].checked){
+                    tempList.push('<li><input type="checkbox" label="'+displayName+'" checked />'+displayName+'</li>');
+                }else{
+                    tempList.push('<li><input type="checkbox" label="'+displayName+'" />'+displayName+'</li>');
+                }
+                
+            };
+            return tempList;
+        }
+
+        function noRepeat(arr){
+            var temp = [];
+            arr.forEach(function(val){
+                if(temp.indexOf(val)===-1){
+                    temp.push(val);
+                }
+            });
+            return temp;
+        }
+
+        $('#btn').on('click', function(){
+            console.log(subjectData);
+        })
+        
+
+    </script>
+</body>
+</html>
